@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidCalculator/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/AndroidCalculator/app/src/main/res/drawable/btn_circle_orange.xml" value="0.1" />
+        <entry key="..\:/AndroidCalculator/app/src/main/res/drawable/btn_pill_vdeep_orange.xml" value="0.1" />
+        <entry key="..\:/AndroidCalculator/app/src/main/res/layout/first_layout.xml" value="0.1" />
+        <entry key="..\:/AndroidCalculator/app/src/main/res/menu/main.xml" value="0.2351851851851852" />
+        <entry key="..\:/AndroidCalculator/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.186" />
         <entry key="app/src/main/res/drawable/btn_circle_deepgrey.xml" value="0.2125" />
         <entry key="app/src/main/res/drawable/btn_circle_grey.xml" value="0.2125" />

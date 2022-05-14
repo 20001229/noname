@@ -1,8 +1,13 @@
 package com.example.AndroidCalculator
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.EditText
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import com.example.AndroidCalculator.R
@@ -40,6 +45,8 @@ class AndroidCalculator : AppCompatActivity(), View.OnClickListener {
         val button_fac = findViewById(R.id.button_fac) as Button
         val button_c = findViewById(R.id.button_c) as Button
         val button_root = findViewById(R.id.button_root) as Button
+        val button_zs = findViewById(R.id.button_zs) as Button
+
         button0.setOnClickListener(this)
         button1.setOnClickListener(this)
         button2.setOnClickListener(this)
@@ -62,11 +69,64 @@ class AndroidCalculator : AppCompatActivity(), View.OnClickListener {
         button_fac.setOnClickListener(this)
         button_c.setOnClickListener(this)
         button_root.setOnClickListener(this)
+        button_zs.setOnClickListener(this)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+            R.id.add_item -> {
+                Toast.makeText(this,"你选择跳转至项目页面", Toast.LENGTH_LONG).show()
+                val intent = Intent(Intent.ACTION_VIEW)
+
+                intent.setData(Uri.parse("https://gitee.com/loganvon/AndroidCalculator"))
+                startActivity(intent)
+            }
+            R.id.remove_item -> Toast.makeText(this,"你选择退出程序", Toast.LENGTH_LONG).show()
+
+
+        }
+        this.finish();System.exit(0);return true
+    }
+
 
     override fun onClick(v: View?) {
         var et = editText.getText().toString()
         when (v?.getId()) {
+
+            R.id.button_zs -> if (et[0] == '-') {
+                Toast.makeText(
+                    this@AndroidCalculator,
+                    "Negative numbers cannot be squared",
+                    Toast.LENGTH_SHORT
+                ).show()
+                editText.setText("0")
+            } else if (et.contains("+") ||
+                    et.contains("-") ||
+                    et.contains("×") ||
+                    et.contains("÷")
+                ) {
+                Toast.makeText(
+                    this@AndroidCalculator,
+                    "Symbols cannot be squared!",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+                editText.setText("0")
+            }
+            else{
+                var x= et.toDouble()
+                x = Math.sin(Math.PI/(180/x))
+                var x2 = formatResult(x)
+                editText.setText(x2)
+        }
+
+
+
             R.id.button_0 -> {
                 if (et == "0") et = "0" else et += "0"
                 editText.setText(et)
@@ -414,3 +474,4 @@ class AndroidCalculator : AppCompatActivity(), View.OnClickListener {
     }
 
 }
+
